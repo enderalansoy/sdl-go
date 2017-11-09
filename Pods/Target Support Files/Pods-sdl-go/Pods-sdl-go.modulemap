@@ -1,0 +1,6 @@
+framework module Pods_sdl_go {
+  umbrella header "Pods-sdl-go-umbrella.h"
+
+  export *
+  module * { export * }
+}

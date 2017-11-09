@@ -1,0 +1,158 @@
+22 serialization::archive 11 5 8.1.0 0 1 0 2 0 0 0 0 0 0 1 0 0 0 65 fin_kill_switch_86443a12_ca8a_43ba_96c4_779e57b475f1_76_needs_fin 0 1 7 27 eit::FinalizationKillSwitch 1 2
+0 1 3
+1 1 1
+2 21 fin_kill_switch_check 21 fin_kill_switch_check 56 fin_kill_switch_86443a12_ca8a_43ba_96c4_779e57b475f1_76_ 77 fin_kill_switch_86443a12_ca8a_43ba_96c4_779e57b475f1_76_fin_kill_switch_check 0 0 0 0 -1 0 21 x86_64-apple-ios8.0.0 589516150 0 1 0 0 1 0 0 154 0 0 0 17 +[FMCLogger log:] 1 0
+3 1 0 17 +[FMCLogger log:] 25 +[FMCLogger sharedLogger]
+4 1 0 25 +[FMCLogger sharedLogger] 36 +[FMCSecurityManager availableMakes]
+5 1 0 36 +[FMCSecurityManager availableMakes] 52 +[FMCURLRequest fmc_requestWithURL:method:bodyData:]
+6 1 0 52 +[FMCURLRequest fmc_requestWithURL:method:bodyData:] 34 +[FMCURLRequest getRequestForURL:]
+7 1 0 34 +[FMCURLRequest getRequestForURL:] 51 +[FMCURLRequest postRequestForURL:withAppId:error:]
+8 1 0 51 +[FMCURLRequest postRequestForURL:withAppId:error:] 58 +[FMCURLRequestTask taskWithURLRequest:completionHandler:]
+9 1 0 58 +[FMCURLRequestTask taskWithURLRequest:completionHandler:] 31 +[FMCURLSession defaultSession]
+10 1 0 31 +[FMCURLSession defaultSession] 52 +[_FMCCertificateManager fmc_buildSecurityDirectory]
+11 1 0 52 +[_FMCCertificateManager fmc_buildSecurityDirectory] 49 +[_FMCCertificateManager fmc_certificateFilePath]
+12 1 0 49 +[_FMCCertificateManager fmc_certificateFilePath] 47 +[_FMCCertificateManager fmc_deleteCertificate]
+13 1 0 47 +[_FMCCertificateManager fmc_deleteCertificate] 39 +[_FMCCertificateManager sharedManager]
+14 1 0 39 +[_FMCCertificateManager sharedManager] 30 +[_FMCTLSEngine dateFormatter]
+15 1 0 30 +[_FMCTLSEngine dateFormatter] 62 +[_FMCTLSEngine fmcsec_errorCodeFromSSL:value:length:isWrite:]
+16 1 0 62 +[_FMCTLSEngine fmcsec_errorCodeFromSSL:value:length:isWrite:] 50 +[_FMCTLSEngine fmcsec_errorInitializationFailure]
+17 1 0 50 +[_FMCTLSEngine fmcsec_errorInitializationFailure] 46 +[_FMCTLSEngine fmcsec_errorMaxRetriesAllowed]
+18 1 0 46 +[_FMCTLSEngine fmcsec_errorMaxRetriesAllowed] 26 -[FMCLogger .cxx_destruct]
+19 1 0 26 -[FMCLogger .cxx_destruct] 26 -[FMCLogger dateFormatter]
+20 1 0 26 -[FMCLogger dateFormatter] 23 -[FMCLogger fileHandle]
+21 1 0 23 -[FMCLogger fileHandle] 17 -[FMCLogger init]
+22 1 0 17 -[FMCLogger init] 29 -[FMCLogger isLoggingEnabled]
+23 1 0 29 -[FMCLogger isLoggingEnabled] 21 -[FMCLogger logQueue]
+24 1 0 21 -[FMCLogger logQueue] 33 -[FMCLogger sdl_createFileHandle]
+25 1 0 33 -[FMCLogger sdl_createFileHandle] 21 -[FMCLogger sdl_log:]
+26 1 0 21 -[FMCLogger sdl_log:] 30 -[FMCLogger setDateFormatter:]
+27 1 0 30 -[FMCLogger setDateFormatter:] 27 -[FMCLogger setFileHandle:]
+28 1 0 27 -[FMCLogger setFileHandle:] 25 -[FMCLogger setLogQueue:]
+29 1 0 25 -[FMCLogger setLogQueue:] 31 -[FMCLogger setLoggingEnabled:]
+30 1 0 31 -[FMCLogger setLoggingEnabled:] 35 -[FMCSecurityManager .cxx_destruct]
+31 1 0 35 -[FMCSecurityManager .cxx_destruct] 27 -[FMCSecurityManager appId]
+32 1 0 27 -[FMCSecurityManager appId] 40 -[FMCSecurityManager completionHandlers]
+33 1 0 40 -[FMCSecurityManager completionHandlers] 44 -[FMCSecurityManager decryptData:withError:]
+34 1 0 44 -[FMCSecurityManager decryptData:withError:] 44 -[FMCSecurityManager encryptData:withError:]
+35 1 0 44 -[FMCSecurityManager encryptData:withError:] 26 -[FMCSecurityManager init]
+36 1 0 26 -[FMCSecurityManager init] 60 -[FMCSecurityManager initializeWithAppId:completionHandler:]
+37 1 0 60 -[FMCSecurityManager initializeWithAppId:completionHandler:] 37 -[FMCSecurityManager privateSecurity]
+38 1 0 37 -[FMCSecurityManager privateSecurity] 55 -[FMCSecurityManager runHandshakeWithClientData:error:]
+39 1 0 55 -[FMCSecurityManager runHandshakeWithClientData:error:] 58 -[FMCSecurityManager sdl_fireCompletionHandlersWithError:]
+40 1 0 58 -[FMCSecurityManager sdl_fireCompletionHandlersWithError:] 31 -[FMCSecurityManager setAppId:]
+41 1 0 31 -[FMCSecurityManager setAppId:] 44 -[FMCSecurityManager setCompletionHandlers:]
+42 1 0 44 -[FMCSecurityManager setCompletionHandlers:] 41 -[FMCSecurityManager setPrivateSecurity:]
+43 1 0 41 -[FMCSecurityManager setPrivateSecurity:] 31 -[FMCSecurityManager setState:]
+44 1 0 31 -[FMCSecurityManager setState:] 27 -[FMCSecurityManager state]
+45 1 0 27 -[FMCSecurityManager state] 26 -[FMCSecurityManager stop]
+46 1 0 26 -[FMCSecurityManager stop] 34 -[FMCURLRequestTask .cxx_destruct]
+47 1 0 34 -[FMCURLRequestTask .cxx_destruct] 27 -[FMCURLRequestTask cancel]
+48 1 0 27 -[FMCURLRequestTask cancel] 38 -[FMCURLRequestTask completionHandler]
+49 1 0 38 -[FMCURLRequestTask completionHandler] 49 -[FMCURLRequestTask connection:didFailWithError:]
+50 1 0 49 -[FMCURLRequestTask connection:didFailWithError:] 47 -[FMCURLRequestTask connection:didReceiveData:]
+51 1 0 47 -[FMCURLRequestTask connection:didReceiveData:] 51 -[FMCURLRequestTask connection:didReceiveResponse:]
+52 1 0 51 -[FMCURLRequestTask connection:didReceiveResponse:] 48 -[FMCURLRequestTask connectionDidFinishLoading:]
+53 1 0 48 -[FMCURLRequestTask connectionDidFinishLoading:] 31 -[FMCURLRequestTask connection]
+54 1 0 31 -[FMCURLRequestTask connection] 28 -[FMCURLRequestTask dealloc]
+55 1 0 28 -[FMCURLRequestTask dealloc] 29 -[FMCURLRequestTask delegate]
+56 1 0 29 -[FMCURLRequestTask delegate] 33 -[FMCURLRequestTask fmc_addData:]
+57 1 0 33 -[FMCURLRequestTask fmc_addData:] 58 -[FMCURLRequestTask initWithURLRequest:completionHandler:]
+58 1 0 58 -[FMCURLRequestTask initWithURLRequest:completionHandler:] 25 -[FMCURLRequestTask init]
+59 1 0 25 -[FMCURLRequestTask init] 32 -[FMCURLRequestTask mutableData]
+60 1 0 32 -[FMCURLRequestTask mutableData] 29 -[FMCURLRequestTask response]
+61 1 0 29 -[FMCURLRequestTask response] 42 -[FMCURLRequestTask setCompletionHandler:]
+62 1 0 42 -[FMCURLRequestTask setCompletionHandler:] 35 -[FMCURLRequestTask setConnection:]
+63 1 0 35 -[FMCURLRequestTask setConnection:] 33 -[FMCURLRequestTask setDelegate:]
+64 1 0 33 -[FMCURLRequestTask setDelegate:] 36 -[FMCURLRequestTask setMutableData:]
+65 1 0 36 -[FMCURLRequestTask setMutableData:] 33 -[FMCURLRequestTask setResponse:]
+66 1 0 33 -[FMCURLRequestTask setResponse:] 30 -[FMCURLRequestTask setState:]
+67 1 0 30 -[FMCURLRequestTask setState:] 26 -[FMCURLRequestTask state]
+68 1 0 26 -[FMCURLRequestTask state] 30 -[FMCURLSession .cxx_destruct]
+69 1 0 30 -[FMCURLSession .cxx_destruct] 28 -[FMCURLSession activeTasks]
+70 1 0 28 -[FMCURLSession activeTasks] 31 -[FMCURLSession cancelAllTasks]
+71 1 0 31 -[FMCURLSession cancelAllTasks] 47 -[FMCURLSession dataFromURL:completionHandler:]
+72 1 0 47 -[FMCURLSession dataFromURL:completionHandler:] 24 -[FMCURLSession dealloc]
+73 1 0 24 -[FMCURLSession dealloc] 21 -[FMCURLSession init]
+74 1 0 21 -[FMCURLSession init] 32 -[FMCURLSession setActiveTasks:]
+75 1 0 32 -[FMCURLSession setActiveTasks:] 31 -[FMCURLSession taskDidFinish:]
+76 1 0 31 -[FMCURLSession taskDidFinish:] 56 -[FMCURLSession uploadWithURLRequest:completionHandler:]
+77 1 0 56 -[FMCURLSession uploadWithURLRequest:completionHandler:] 39 -[_FMCCertificateManager .cxx_destruct]
+78 1 0 39 -[_FMCCertificateManager .cxx_destruct] 41 -[_FMCCertificateManager certificateData]
+79 1 0 41 -[_FMCCertificateManager certificateData] 40 -[_FMCCertificateManager certificateURL]
+80 1 0 40 -[_FMCCertificateManager certificateURL] 44 -[_FMCCertificateManager completionHandlers]
+81 1 0 44 -[_FMCCertificateManager completionHandlers] 48 -[_FMCCertificateManager currentCertificateData]
+82 1 0 48 -[_FMCCertificateManager currentCertificateData] 30 -[_FMCCertificateManager init]
+83 1 0 30 -[_FMCCertificateManager init] 45 -[_FMCCertificateManager isProcessingRequest]
+84 1 0 45 -[_FMCCertificateManager isProcessingRequest] 76 -[_FMCCertificateManager retrieveNewCertificateWithAppId:completionHandler:]
+85 1 0 76 -[_FMCCertificateManager retrieveNewCertificateWithAppId:completionHandler:] 70 -[_FMCCertificateManager sdl_fireCompletionHandlersWithSuccess:error:]
+86 1 0 70 -[_FMCCertificateManager sdl_fireCompletionHandlersWithSuccess:error:] 44 -[_FMCCertificateManager setCertificateURL:]
+87 1 0 44 -[_FMCCertificateManager setCertificateURL:] 48 -[_FMCCertificateManager setCompletionHandlers:]
+88 1 0 48 -[_FMCCertificateManager setCompletionHandlers:] 52 -[_FMCCertificateManager setCurrentCertificateData:]
+89 1 0 52 -[_FMCCertificateManager setCurrentCertificateData:] 47 -[_FMCCertificateManager setProcessingRequest:]
+90 1 0 47 -[_FMCCertificateManager setProcessingRequest:] 30 -[_FMCTLSEngine .cxx_destruct]
+91 1 0 30 -[_FMCTLSEngine .cxx_destruct] 22 -[_FMCTLSEngine appId]
+92 1 0 22 -[_FMCTLSEngine appId] 40 -[_FMCTLSEngine areLibrariesInitialized]
+93 1 0 40 -[_FMCTLSEngine areLibrariesInitialized] 40 -[_FMCTLSEngine certificateRetryCounter]
+94 1 0 40 -[_FMCTLSEngine certificateRetryCounter] 39 -[_FMCTLSEngine decryptData:withError:]
+95 1 0 39 -[_FMCTLSEngine decryptData:withError:] 59 -[_FMCTLSEngine downloadCertificate:withCompletionHandler:]
+96 1 0 59 -[_FMCTLSEngine downloadCertificate:withCompletionHandler:] 39 -[_FMCTLSEngine encryptData:withError:]
+97 1 0 39 -[_FMCTLSEngine encryptData:withError:] 55 -[_FMCTLSEngine fmcsec_BIOReadDataFromServerWithError:]
+98 1 0 55 -[_FMCTLSEngine fmcsec_BIOReadDataFromServerWithError:] 55 -[_FMCTLSEngine fmcsec_BIOWriteDataToServer:withError:]
+99 1 0 55 -[_FMCTLSEngine fmcsec_BIOWriteDataToServer:withError:] 55 -[_FMCTLSEngine fmcsec_SSLReadDataFromServerWithError:]
+100 1 0 55 -[_FMCTLSEngine fmcsec_SSLReadDataFromServerWithError:] 55 -[_FMCTLSEngine fmcsec_SSLWriteDataToServer:withError:]
+101 1 0 55 -[_FMCTLSEngine fmcsec_SSLWriteDataToServer:withError:] 36 -[_FMCTLSEngine fmcsec_TLSHandshake]
+102 1 0 36 -[_FMCTLSEngine fmcsec_TLSHandshake] 44 -[_FMCTLSEngine fmcsec_deintializeLibraries]
+103 1 0 44 -[_FMCTLSEngine fmcsec_deintializeLibraries] 43 -[_FMCTLSEngine fmcsec_initializeLibraries]
+104 1 0 43 -[_FMCTLSEngine fmcsec_initializeLibraries] 45 -[_FMCTLSEngine fmcsec_isCertificateExpired:]
+105 1 0 45 -[_FMCTLSEngine fmcsec_isCertificateExpired:] 61 -[_FMCTLSEngine fmcsec_parseFromData:certificate:privateKey:]
+106 1 0 61 -[_FMCTLSEngine fmcsec_parseFromData:certificate:privateKey:] 32 -[_FMCTLSEngine fmcsec_shutdown]
+107 1 0 32 -[_FMCTLSEngine fmcsec_shutdown] 31 -[_FMCTLSEngine initWithAppId:]
+108 1 0 31 -[_FMCTLSEngine initWithAppId:] 21 -[_FMCTLSEngine init]
+109 1 0 21 -[_FMCTLSEngine init] 56 -[_FMCTLSEngine initializeTLSWithCertificateData:error:]
+110 1 0 56 -[_FMCTLSEngine initializeTLSWithCertificateData:error:] 52 -[_FMCTLSEngine initializeTLSWithCompletionHandler:]
+111 1 0 52 -[_FMCTLSEngine initializeTLSWithCompletionHandler:] 33 -[_FMCTLSEngine passphraseBuffer]
+112 1 0 33 -[_FMCTLSEngine passphraseBuffer] 29 -[_FMCTLSEngine retryCounter]
+113 1 0 29 -[_FMCTLSEngine retryCounter] 50 -[_FMCTLSEngine runHandshakeWithClientData:error:]
+114 1 0 50 -[_FMCTLSEngine runHandshakeWithClientData:error:] 26 -[_FMCTLSEngine setAppId:]
+115 1 0 26 -[_FMCTLSEngine setAppId:] 44 -[_FMCTLSEngine setCertificateRetryCounter:]
+116 1 0 44 -[_FMCTLSEngine setCertificateRetryCounter:] 41 -[_FMCTLSEngine setLibrariesInitialized:]
+117 1 0 41 -[_FMCTLSEngine setLibrariesInitialized:] 37 -[_FMCTLSEngine setPassphraseBuffer:]
+118 1 0 37 -[_FMCTLSEngine setPassphraseBuffer:] 33 -[_FMCTLSEngine setRetryCounter:]
+119 1 0 33 -[_FMCTLSEngine setRetryCounter:] 26 -[_FMCTLSEngine setState:]
+120 1 0 26 -[_FMCTLSEngine setState:] 28 -[_FMCTLSEngine shutdownTLS]
+121 1 0 28 -[_FMCTLSEngine shutdownTLS] 22 -[_FMCTLSEngine state]
+122 1 0 22 -[_FMCTLSEngine state] 39 ___21-[FMCLogger sdl_log:]_block_invoke
+123 1 0 39 ___21-[FMCLogger sdl_log:]_block_invoke 43 ___25+[FMCLogger sharedLogger]_block_invoke
+124 1 0 43 ___25+[FMCLogger sharedLogger]_block_invoke 49 ___31+[FMCURLSession defaultSession]_block_invoke
+125 1 0 49 ___31+[FMCURLSession defaultSession]_block_invoke 49 ___31-[FMCSecurityManager setAppId:]_block_invoke
+126 1 0 49 ___31-[FMCSecurityManager setAppId:]_block_invoke 57 ___39+[_FMCCertificateManager sharedManager]_block_invoke
+127 1 0 57 ___39+[_FMCCertificateManager sharedManager]_block_invoke 66 ___48-[FMCURLRequestTask connectionDidFinishLoading:]_block_invoke
+128 1 0 66 ___48-[FMCURLRequestTask connectionDidFinishLoading:]_block_invoke 67 ___49-[FMCURLRequestTask connection:didFailWithError:]_block_invoke
+129 1 0 67 ___49-[FMCURLRequestTask connection:didFailWithError:]_block_invoke 70 ___52-[_FMCTLSEngine initializeTLSWithCompletionHandler:]_block_invoke
+130 1 0 70 ___52-[_FMCTLSEngine initializeTLSWithCompletionHandler:]_block_invoke 72 ___52-[_FMCTLSEngine initializeTLSWithCompletionHandler:]_block_invoke_2
+131 1 0 72 ___52-[_FMCTLSEngine initializeTLSWithCompletionHandler:]_block_invoke_2 77 ___59-[_FMCTLSEngine downloadCertificate:withCompletionHandler:]_block_invoke
+132 1 0 77 ___59-[_FMCTLSEngine downloadCertificate:withCompletionHandler:]_block_invoke 78 ___60-[FMCSecurityManager initializeWithAppId:completionHandler:]_block_invoke
+133 1 0 78 ___60-[FMCSecurityManager initializeWithAppId:completionHandler:]_block_invoke 94 ___76-[_FMCCertificateManager retrieveNewCertificateWithAppId:completionHandler:]_block_invoke
+134 1 0 94 ___76-[_FMCCertificateManager retrieveNewCertificateWithAppId:completionHandler:]_block_invoke 21 ___copy_helper_block_
+135 1 0 21 ___copy_helper_block_ 25 ___copy_helper_block_.101
+136 1 0 25 ___copy_helper_block_.101 24 ___copy_helper_block_.18
+137 1 0 24 ___copy_helper_block_.18 25 ___copy_helper_block_.208
+138 1 0 25 ___copy_helper_block_.208 24 ___copy_helper_block_.25
+139 1 0 24 ___copy_helper_block_.25 25 ___copy_helper_block_.260
+140 1 0 25 ___copy_helper_block_.260 25 ___copy_helper_block_.366
+141 1 0 25 ___copy_helper_block_.366 24 ___copy_helper_block_.48
+142 1 0 24 ___copy_helper_block_.48 24 ___copy_helper_block_.99
+143 1 0 24 ___copy_helper_block_.99 24 ___destroy_helper_block_
+144 1 0 24 ___destroy_helper_block_ 28 ___destroy_helper_block_.100
+145 1 0 28 ___destroy_helper_block_.100 28 ___destroy_helper_block_.102
+146 1 0 28 ___destroy_helper_block_.102 27 ___destroy_helper_block_.19
+147 1 0 27 ___destroy_helper_block_.19 28 ___destroy_helper_block_.209
+148 1 0 28 ___destroy_helper_block_.209 27 ___destroy_helper_block_.26
+149 1 0 27 ___destroy_helper_block_.26 28 ___destroy_helper_block_.261
+150 1 0 28 ___destroy_helper_block_.261 28 ___destroy_helper_block_.367
+151 1 0 28 ___destroy_helper_block_.367 27 ___destroy_helper_block_.49
+152 1 0 27 ___destroy_helper_block_.49 18 _decryptPassphrase
+153 1 0 18 _decryptPassphrase 29 _fmcsec_cleanUpInitialization
+154 1 0 29 _fmcsec_cleanUpInitialization 28 _fmcsec_isCertificateExpired
+155 1 0 28 _fmcsec_isCertificateExpired 55 _prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor
+156 10 0 161 _fin_kill_switch_86443a12_ca8a_43ba_96c4_779e57b475f1_76_fin_kill_switch_check____INLINED_IN_____prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor____BLOCK1 161 _fin_kill_switch_86443a12_ca8a_43ba_96c4_779e57b475f1_76_fin_kill_switch_check____INLINED_IN_____prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor____BLOCK2 161 _fin_kill_switch_86443a12_ca8a_43ba_96c4_779e57b475f1_76_fin_kill_switch_check____INLINED_IN_____prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor____BLOCK3 161 _fin_kill_switch_86443a12_ca8a_43ba_96c4_779e57b475f1_76_fin_kill_switch_check____INLINED_IN_____prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor____BLOCK4 161 _fin_kill_switch_86443a12_ca8a_43ba_96c4_779e57b475f1_76_fin_kill_switch_check____INLINED_IN_____prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor____BLOCK5 161 _fin_kill_switch_86443a12_ca8a_43ba_96c4_779e57b475f1_76_fin_kill_switch_check____INLINED_IN_____prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor____BLOCK6 55 _prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor 65 _prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor____BLOCK7 65 _prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor____BLOCK8 65 _prot_ctor_86443a12_ca8a_43ba_96c4_779e57b475f1_75_ctor____BLOCK9 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 2 0 1 0 0 1 0 0 0 65 fin_kill_switch_86443a12_ca8a_43ba_96c4_779e57b475f1_76_needs_fin 1 39 _86443a12_ca8a_43ba_96c4_779e57b475f1_0

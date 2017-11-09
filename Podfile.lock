@@ -1,0 +1,12 @@
+PODS:
+  - SmartDeviceLink (4.6.1)
+
+DEPENDENCIES:
+  - SmartDeviceLink (~> 4.6.1)
+
+SPEC CHECKSUMS:
+  SmartDeviceLink: 30998abd2213cd590bb251874ca8d2e0fa7f43be
+
+PODFILE CHECKSUM: 382b2e2cd15b3ce9addbf8c64d3a94c588996d72
+
+COCOAPODS: 1.2.1

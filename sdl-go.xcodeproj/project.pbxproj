@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58A52A071F25B2DC009E0786 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A52A061F25B2DC009E0786 /* ImageProcessor.swift */; };
+		58A52A091F25B501009E0786 /* beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58A52A081F25B500009E0786 /* beach.jpg */; };
 		58EA702C1F21DC1A00EE5F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EA702B1F21DC1A00EE5F18 /* AppDelegate.swift */; };
 		58EA702E1F21DC1A00EE5F18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EA702D1F21DC1A00EE5F18 /* ViewController.swift */; };
 		58EA70311F21DC1A00EE5F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EA702F1F21DC1A00EE5F18 /* Main.storyboard */; };
 		58EA70331F21DC1A00EE5F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58EA70321F21DC1A00EE5F18 /* Assets.xcassets */; };
 		58EA70361F21DC1A00EE5F18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EA70341F21DC1A00EE5F18 /* LaunchScreen.storyboard */; };
+		58EA70451F21DD5500EE5F18 /* libFMCSecurity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EA70421F21DD5500EE5F18 /* libFMCSecurity.a */; };
+		58EA70461F21DD5500EE5F18 /* libFMCSecurity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EA70441F21DD5500EE5F18 /* libFMCSecurity.a */; };
+		58EA704A1F21DEFB00EE5F18 /* ProxyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EA70491F21DEFB00EE5F18 /* ProxyManager.swift */; };
+		E8C7A391A7554859212D3F52 /* Pods_sdl_go.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E6FAE982FB14E63E2441F1 /* Pods_sdl_go.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26E6FAE982FB14E63E2441F1 /* Pods_sdl_go.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sdl_go.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28D71719B295A9B45446925E /* Pods-sdl-go.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdl-go.release.xcconfig"; path = "Pods/Target Support Files/Pods-sdl-go/Pods-sdl-go.release.xcconfig"; sourceTree = "<group>"; };
+		43D554F136F022D0754A7CF7 /* Pods-sdl-go.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdl-go.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sdl-go/Pods-sdl-go.debug.xcconfig"; sourceTree = "<group>"; };
+		58A52A061F25B2DC009E0786 /* ImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		58A52A081F25B500009E0786 /* beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = beach.jpg; path = ../../beach.jpg; sourceTree = "<group>"; };
 		58EA70281F21DC1A00EE5F18 /* sdl-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sdl-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58EA702B1F21DC1A00EE5F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58EA702D1F21DC1A00EE5F18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +33,12 @@
 		58EA70321F21DC1A00EE5F18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58EA70351F21DC1A00EE5F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58EA70371F21DC1A00EE5F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58EA703F1F21DD5500EE5F18 /* FMCSecurityConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCSecurityConstants.h; sourceTree = "<group>"; };
+		58EA70401F21DD5500EE5F18 /* FMCSecurityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCSecurityManager.h; sourceTree = "<group>"; };
+		58EA70421F21DD5500EE5F18 /* libFMCSecurity.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFMCSecurity.a; sourceTree = "<group>"; };
+		58EA70441F21DD5500EE5F18 /* libFMCSecurity.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFMCSecurity.a; sourceTree = "<group>"; };
+		58EA70471F21DD7A00EE5F18 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		58EA70491F21DEFB00EE5F18 /* ProxyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +46,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58EA70461F21DD5500EE5F18 /* libFMCSecurity.a in Frameworks */,
+				58EA70451F21DD5500EE5F18 /* libFMCSecurity.a in Frameworks */,
+				E8C7A391A7554859212D3F52 /* Pods_sdl_go.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C4B04A1ADB485195E37591B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43D554F136F022D0754A7CF7 /* Pods-sdl-go.debug.xcconfig */,
+				28D71719B295A9B45446925E /* Pods-sdl-go.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		58EA701F1F21DC1A00EE5F18 = {
 			isa = PBXGroup;
 			children = (
 				58EA702A1F21DC1A00EE5F18 /* sdl-go */,
+				58EA703D1F21DD5500EE5F18 /* FMCSecurity */,
 				58EA70291F21DC1A00EE5F18 /* Products */,
+				1C4B04A1ADB485195E37591B /* Pods */,
+				B19D066095361A6068E115E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +86,62 @@
 		58EA702A1F21DC1A00EE5F18 /* sdl-go */ = {
 			isa = PBXGroup;
 			children = (
+				58A52A061F25B2DC009E0786 /* ImageProcessor.swift */,
 				58EA702B1F21DC1A00EE5F18 /* AppDelegate.swift */,
+				58EA70491F21DEFB00EE5F18 /* ProxyManager.swift */,
 				58EA702D1F21DC1A00EE5F18 /* ViewController.swift */,
 				58EA702F1F21DC1A00EE5F18 /* Main.storyboard */,
 				58EA70321F21DC1A00EE5F18 /* Assets.xcassets */,
 				58EA70341F21DC1A00EE5F18 /* LaunchScreen.storyboard */,
 				58EA70371F21DC1A00EE5F18 /* Info.plist */,
+				58A52A081F25B500009E0786 /* beach.jpg */,
 			);
 			path = "sdl-go";
+			sourceTree = "<group>";
+		};
+		58EA703D1F21DD5500EE5F18 /* FMCSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				58EA703E1F21DD5500EE5F18 /* common */,
+				58EA70411F21DD5500EE5F18 /* debug */,
+				58EA70431F21DD5500EE5F18 /* release */,
+				58EA70471F21DD7A00EE5F18 /* BridgingHeader.h */,
+			);
+			name = FMCSecurity;
+			path = FMCSecurity/FMCSecurity;
+			sourceTree = "<group>";
+		};
+		58EA703E1F21DD5500EE5F18 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				58EA703F1F21DD5500EE5F18 /* FMCSecurityConstants.h */,
+				58EA70401F21DD5500EE5F18 /* FMCSecurityManager.h */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		58EA70411F21DD5500EE5F18 /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				58EA70421F21DD5500EE5F18 /* libFMCSecurity.a */,
+			);
+			path = debug;
+			sourceTree = "<group>";
+		};
+		58EA70431F21DD5500EE5F18 /* release */ = {
+			isa = PBXGroup;
+			children = (
+				58EA70441F21DD5500EE5F18 /* libFMCSecurity.a */,
+			);
+			path = release;
+			sourceTree = "<group>";
+		};
+		B19D066095361A6068E115E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26E6FAE982FB14E63E2441F1 /* Pods_sdl_go.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +151,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58EA703A1F21DC1A00EE5F18 /* Build configuration list for PBXNativeTarget "sdl-go" */;
 			buildPhases = (
+				D1599B519D80DFE1B0C1F8A2 /* [CP] Check Pods Manifest.lock */,
 				58EA70241F21DC1A00EE5F18 /* Sources */,
 				58EA70251F21DC1A00EE5F18 /* Frameworks */,
 				58EA70261F21DC1A00EE5F18 /* Resources */,
+				09F2FDB856F82769CB205921 /* [CP] Embed Pods Frameworks */,
+				CA92F05A444D9C6FFF771088 /* [CP] Copy Pods Resources */,
+				58EA70481F21DECF00EE5F18 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -91,12 +175,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = mac13;
 				TargetAttributes = {
 					58EA70271F21DC1A00EE5F18 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = ZJ6JH469K5;
+						DevelopmentTeam = LTF895WCW6;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -127,17 +212,81 @@
 				58EA70361F21DC1A00EE5F18 /* LaunchScreen.storyboard in Resources */,
 				58EA70331F21DC1A00EE5F18 /* Assets.xcassets in Resources */,
 				58EA70311F21DC1A00EE5F18 /* Main.storyboard in Resources */,
+				58A52A091F25B501009E0786 /* beach.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09F2FDB856F82769CB205921 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sdl-go/Pods-sdl-go-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58EA70481F21DECF00EE5F18 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"${CONFIGURATION}\" == \"Release\" ]]; then\n\nFINALIZE_DIR=\"${SRCROOT}/FMCSecurity/finalizer/common\"\nLIB_DIR=\"${SRCROOT}/FMCSecurity/FMCSecurity\"\n\necho $FINALIZE_DIR\necho $LIB_DIR\n\nif [[ ! -e \"$FINALIZE_DIR/xcode-finalize-protection.py\" ]]; then\necho \"${SRCROOT}/FMCSecurity/xcode-finalize-protection.py does not exist. Please update the Finalize Protection Build Phase in the Xcode project with the correct path to the xcode-finalize-protection.py script in the Finalizer installation.\"\nexit 1\nfi\n\nFINALIZE=\"$FINALIZE_DIR/xcode-finalize-protection.py -prefinalized-library\"\n\n${FINALIZE} \"$LIB_DIR/release/libFMCSecurity.a\"\n\nfi";
+		};
+		CA92F05A444D9C6FFF771088 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sdl-go/Pods-sdl-go-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1599B519D80DFE1B0C1F8A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58EA70241F21DC1A00EE5F18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58EA704A1F21DEFB00EE5F18 /* ProxyManager.swift in Sources */,
 				58EA702E1F21DC1A00EE5F18 /* ViewController.swift in Sources */,
+				58A52A071F25B2DC009E0786 /* ImageProcessor.swift in Sources */,
 				58EA702C1F21DC1A00EE5F18 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,7 +323,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -182,7 +333,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -225,7 +380,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -233,7 +390,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -261,26 +422,48 @@
 		};
 		58EA703B1F21DC1A00EE5F18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43D554F136F022D0754A7CF7 /* Pods-sdl-go.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZJ6JH469K5;
+				DEVELOPMENT_TEAM = LTF895WCW6;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FMCSecurity/FMCSecurity/common";
 				INFOPLIST_FILE = "sdl-go/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mac13.sdl-go";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FMCSecurity/FMCSecurity/debug",
+					"$(PROJECT_DIR)/FMCSecurity/FMCSecurity/release",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mac13.sdl-gonew";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/FMCSecurity/FMCSecurity/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		58EA703C1F21DC1A00EE5F18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28D71719B295A9B45446925E /* Pods-sdl-go.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZJ6JH469K5;
+				DEVELOPMENT_TEAM = LTF895WCW6;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FMCSecurity/FMCSecurity/common";
 				INFOPLIST_FILE = "sdl-go/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mac13.sdl-go";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FMCSecurity/FMCSecurity/debug",
+					"$(PROJECT_DIR)/FMCSecurity/FMCSecurity/release",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mac13.sdl-gonew";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/FMCSecurity/FMCSecurity/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -304,6 +487,7 @@
 				58EA703C1F21DC1A00EE5F18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
