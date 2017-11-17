@@ -2,19 +2,21 @@
 //  SDLSubscribeWaypointsResponse.m
 //
 
-#import "SDLSubscribeWaypointsResponse.h"
+#import "SDLSubscribeWayPointsResponse.h"
+
+#import "NSMutableDictionary+Store.h"
 #import "SDLNames.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @implementation SDLSubscribeWayPointsResponse
 
 - (instancetype)init {
-    if (self = [super initWithName:NAMES_SubscribeWaypoints]) {
+    if (self = [super initWithName:SDLNameSubscribeWayPoints]) {
     }
     return self;
 }
 
 @end
 
-@implementation SDLSubscribeWaypointsResponse
-
-@end
+NS_ASSUME_NONNULL_END

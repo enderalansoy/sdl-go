@@ -5,15 +5,18 @@
 
 @class SDLProtocolMessage;
 
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol SDLProtocolListener <NSObject>
 
 @optional
-- (void)handleProtocolStartSessionACK:(SDLServiceType)serviceType sessionID:(Byte)sessionID version:(Byte)version __deprecated_msg("use handleProtocolStartSessionACK: instead");
-- (void)handleProtocolStartSessionACK:(SDLProtocolHeader *)header;
-- (void)handleProtocolStartSessionNACK:(SDLServiceType)serviceType;
-- (void)handleProtocolEndSessionACK:(SDLServiceType)serviceType;
-- (void)handleProtocolEndSessionNACK:(SDLServiceType)serviceType;
+// v4.7.0 protocol handlers
+- (void)handleProtocolStartServiceACKMessage:(SDLProtocolMessage *)startServiceACK;
+- (void)handleProtocolStartServiceNAKMessage:(SDLProtocolMessage *)startServiceNAK;
+- (void)handleProtocolEndServiceACKMessage:(SDLProtocolMessage *)endServiceACK;
+- (void)handleProtocolEndServiceNAKMessage:(SDLProtocolMessage *)endServiceNAK;
+
+// Older protocol handlers
 - (void)handleHeartbeatForSession:(Byte)session;
 - (void)handleHeartbeatACK;
 - (void)onProtocolMessageReceived:(SDLProtocolMessage *)msg;
@@ -22,3 +25,5 @@
 - (void)onError:(NSString *)info exception:(NSException *)e;
 
 @end
+
+NS_ASSUME_NONNULL_END

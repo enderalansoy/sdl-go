@@ -9,142 +9,199 @@
  *
  * @since SDL 1.0
  */
-@interface SDLLanguage : SDLEnum {
-}
+typedef SDLEnum SDLLanguage SDL_SWIFT_ENUM;
 
-/**
- * @abstract Get a Langusge according to a String
- *
- * @param value The value of the string to get an object for
- *
- * @return The Language
+/*!
+ @abstract English_SA
  */
-+ (SDLLanguage *)valueOf:(NSString *)value;
+extern SDLLanguage const SDLLanguageEnSa;
 
-/**
- * @abstract store all possible Language values
- *
- * @return an array with all possible Language values inside
+/*!
+ @abstract Hebrew_IL
  */
-+ (NSArray *)values;
+extern SDLLanguage const SDLLanguageHeIl;
+
+/*!
+ @abstract Romainian_RO
+ */
+extern SDLLanguage const SDLLanguageRoRo;
+
+/*!
+ @abstract Ukrainian_UA
+ */
+extern SDLLanguage const SDLLanguageUkUa;
+
+/*!
+ @abstract Indonesian_ID
+ */
+extern SDLLanguage const SDLLanguageIdId;
+
+/*!
+ @abstract Vietnamese_VN
+ */
+extern SDLLanguage const SDLLanguageViVn;
+
+/*!
+ @abstract Malay_MY
+ */
+extern SDLLanguage const SDLLanguageMsMy;
+
+/*!
+ @abstract Hindi_IN
+ */
+extern SDLLanguage const SDLLanguageHiIn;
+
+/*!
+ @abstract Dutch(Flemish)_BE
+ */
+extern SDLLanguage const SDLLanguageNlBe;
+
+/*!
+ @abstract Greek_GR
+ */
+extern SDLLanguage const SDLLanguageElGr;
+
+/*!
+ @abstract Hungarian_HU
+ */
+extern SDLLanguage const SDLLanguageHuHu;
+
+/*!
+ @abstract Finnish_FI
+ */
+extern SDLLanguage const SDLLanguageFiFi;
+
+/*!
+ @abstract Slovak_SK
+ */
+extern SDLLanguage const SDLLanguageSkSk;
+
 /*!
  @abstract English_US
  */
-+ (SDLLanguage *)EN_US;
+extern SDLLanguage const SDLLanguageEnUs;
+
+/*!
+ @abstract English - India
+ */
+extern SDLLanguage const SDLLanguageEnIn;
+
+/*!
+ @abstract Thai - Thailand
+ */
+extern SDLLanguage const SDLLanguageThTh;
 
 /**
  @abstract Spanish - Mexico
  */
-+ (SDLLanguage *)ES_MX;
+extern SDLLanguage const SDLLanguageEsMx;
 
 /**
  * @abstract French - Canada
  */
-+ (SDLLanguage *)FR_CA;
+extern SDLLanguage const SDLLanguageFrCa;
 
 /**
  * @abstract German - Germany
  */
-+ (SDLLanguage *)DE_DE;
+extern SDLLanguage const SDLLanguageDeDe;
 
 /**
  * @abstract Spanish - Spain
  */
-+ (SDLLanguage *)ES_ES;
+extern SDLLanguage const SDLLanguageEsEs;
 
 /**
  @abstract English - Great Britain
  */
-+ (SDLLanguage *)EN_GB;
+extern SDLLanguage const SDLLanguageEnGb;
 
 /**
  * @abstract Russian - Russia
  */
-+ (SDLLanguage *)RU_RU;
+extern SDLLanguage const SDLLanguageRuRu;
 
 /**
  * @abstract Turkish - Turkey
  */
-+ (SDLLanguage *)TR_TR;
+extern SDLLanguage const SDLLanguageTrTr;
 
 /**
  * @abstract Polish - Poland
  */
-+ (SDLLanguage *)PL_PL;
+extern SDLLanguage const SDLLanguagePlPl;
 
 /**
  * @abstract French - France
  */
-+ (SDLLanguage *)FR_FR;
+extern SDLLanguage const SDLLanguageFrFr;
 
 /**
  * @abstract Italian - Italy
  */
-+ (SDLLanguage *)IT_IT;
+extern SDLLanguage const SDLLanguageItIt;
 
 /**
  * @abstract Swedish - Sweden
  */
-+ (SDLLanguage *)SV_SE;
+extern SDLLanguage const SDLLanguageSvSe;
 
 /**
  * @abstract Portuguese - Portugal
  */
-+ (SDLLanguage *)PT_PT;
+extern SDLLanguage const SDLLanguagePtPt;
 
 /**
  * @abstract Dutch (Standard) - Netherlands
  */
-+ (SDLLanguage *)NL_NL;
+extern SDLLanguage const SDLLanguageNlNl;
 
 /**
  * @abstract English - Australia
  */
-+ (SDLLanguage *)EN_AU;
+extern SDLLanguage const SDLLanguageEnAu;
 
 /**
  * @abstract Mandarin - China
  */
-+ (SDLLanguage *)ZH_CN;
+extern SDLLanguage const SDLLanguageZhCn;
 
 /**
  * @abstract Mandarin - Taiwan
  */
-+ (SDLLanguage *)ZH_TW;
+extern SDLLanguage const SDLLanguageZhTw;
 
 /**
  * @abstract Japanese - Japan
  */
-+ (SDLLanguage *)JA_JP;
+extern SDLLanguage const SDLLanguageJaJp;
 
 /**
  * @abstract Arabic - Saudi Arabia
  */
-+ (SDLLanguage *)AR_SA;
+extern SDLLanguage const SDLLanguageArSa;
 
 /**
  * @abstract Korean - South Korea
  */
-+ (SDLLanguage *)KO_KR;
+extern SDLLanguage const SDLLanguageKoKr;
 
 /**
  * @abstract Portuguese - Brazil
  */
-+ (SDLLanguage *)PT_BR;
+extern SDLLanguage const SDLLanguagePtBr;
 
 /**
  * @abstract Czech - Czech Republic
  */
-+ (SDLLanguage *)CS_CZ;
+extern SDLLanguage const SDLLanguageCsCz;
 
 /**
  * @abstract Danish - Denmark
  */
-+ (SDLLanguage *)DA_DK;
+extern SDLLanguage const SDLLanguageDaDk;
 
 /**
  * @abstract Norwegian - Norway
  */
-+ (SDLLanguage *)NO_NO;
-
-@end
+extern SDLLanguage const SDLLanguageNoNo;

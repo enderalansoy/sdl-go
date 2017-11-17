@@ -1,9 +1,11 @@
-//  SDLOnWaypointChange.h
+//  SDLOnWayPointChange.h
 //
 
 #import "SDLRPCNotification.h"
 
 @class SDLLocationDetails;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface SDLOnWayPointChange : SDLRPCNotification
 
@@ -16,6 +18,4 @@
 
 @end
 
-__deprecated_msg("Use SDLOnWayPointChange instead")
-    @interface SDLOnWaypointChange : SDLOnWayPointChange
-                                     @end
+NS_ASSUME_NONNULL_END

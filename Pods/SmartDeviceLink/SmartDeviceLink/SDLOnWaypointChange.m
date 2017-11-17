@@ -1,44 +1,30 @@
-//  SDLOnWaypointChange.m
+//  SDLOnWayPointChange.m
 //
 
-#import "SDLOnWaypointChange.h"
+#import "SDLOnWayPointChange.h"
 
+#import "NSMutableDictionary+Store.h"
 #import "SDLLocationDetails.h"
 #import "SDLNames.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @implementation SDLOnWayPointChange
 
 - (instancetype)init {
-    if (self = [super initWithName:NAMES_OnWaypointChange]) {
+    if (self = [super initWithName:SDLNameOnWayPointChange]) {
     }
     return self;
 }
 
 - (void)setWaypoints:(NSArray<SDLLocationDetails *> *)waypoints {
-    if (waypoints != nil) {
-        parameters[NAMES_waypoints] = waypoints;
-    } else {
-        [parameters removeObjectForKey:NAMES_waypoints];
-    }
+    [parameters sdl_setObject:waypoints forName:SDLNameWayPoints];
 }
 
 - (NSArray<SDLLocationDetails *> *)waypoints {
-    NSMutableArray *array = [parameters objectForKey:NAMES_waypoints];
-    if ([array isEqual:[NSNull null]]) {
-        return [NSMutableArray array];
-    } else if (array.count < 1 || [array.firstObject isKindOfClass:SDLLocationDetails.class]) {
-        return [array copy];
-    } else {
-        NSMutableArray *newList = [NSMutableArray arrayWithCapacity:[array count]];
-        for (NSDictionary *dict in array) {
-            [newList addObject:[[SDLLocationDetails alloc] initWithDictionary:(NSMutableDictionary *)dict]];
-        }
-        return [newList copy];
-    }
+    return [parameters sdl_objectsForName:SDLNameWayPoints ofClass:SDLLocationDetails.class];
 }
 
 @end
 
-@implementation SDLOnWaypointChange
-
-@end
+NS_ASSUME_NONNULL_END

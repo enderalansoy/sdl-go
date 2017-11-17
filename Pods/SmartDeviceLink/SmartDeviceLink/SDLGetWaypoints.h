@@ -3,12 +3,13 @@
 
 #import "SDLRPCRequest.h"
 
-@class SDLWaypointType;
+#import "SDLWayPointType.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface SDLGetWayPoints : SDLRPCRequest
 
-- (instancetype)initWithType:(SDLWaypointType *)type;
+- (instancetype)initWithType:(SDLWayPointType)type;
 
 /**
  * To request for either the destination
@@ -16,10 +17,8 @@
  *
  * Required
  */
-@property (strong, nonatomic) SDLWaypointType *waypointType;
+@property (nullable, strong, nonatomic) SDLWayPointType waypointType;
 
 @end
 
-__deprecated_msg("Use SDLGetWayPoints instead")
-    @interface SDLGetWaypoints : SDLGetWayPoints
-                                 @end
+NS_ASSUME_NONNULL_END

@@ -6,6 +6,6 @@ target 'sdl-go' do
   use_frameworks!
 
   # Pods for sdl-go
-  pod 'SmartDeviceLink', '~> 4.6.1'
-
+  pod 'SmartDeviceLink', '~> 5.0.0-rc.2'
+  
 end
