@@ -8,13 +8,16 @@
 
 import UIKit
 
-protocol ConsoleLogDelegate {
+protocol ViewDelegate {
     func log(_ text: String)
+    func captureScreen() -> UIImage?
 }
 
-class ViewController: UIViewController, ConsoleLogDelegate {
+class ViewController: UIViewController, ViewDelegate {
 	
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var scrollContentView: UIView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UITextView!
     
     override func viewDidLoad() {
 		super.viewDidLoad()
@@ -28,6 +31,13 @@ class ViewController: UIViewController, ConsoleLogDelegate {
 	}
     
     func log(_ text: String) {
-        label.text = "\(self.label.text)\n\(text)"
+        let prevText = label.text
+        label.text = "\(prevText ?? "")\n\(text)"
+    }
+    
+    func captureScreen() -> UIImage? {
+        imageView.image = UIImage(view: scrollContentView)
+        imageView.contentMode = .scaleToFill
+        return UIImage(view:imageView)
     }
 }

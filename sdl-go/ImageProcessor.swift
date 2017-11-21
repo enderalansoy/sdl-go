@@ -7,6 +7,7 @@
 //
 
 import CoreVideo
+import UIKit
 
 struct ImageProcessor {
 	static func pixelBuffer (forImage image:CGImage) -> CVPixelBuffer? {
@@ -31,6 +32,19 @@ struct ImageProcessor {
 		CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
 		
 		return pixelBuffer
-	}
+	}    
+    
+}
+
+// UIView -> UIImage
+// .e.g: UIImage(view: myView)
+extension UIImage {
+    convenience init(view: UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in:UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: image!.cgImage!)
+    }
 }
 
