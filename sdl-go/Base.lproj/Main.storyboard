@@ -23,13 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cuc-L9-Y2E">
-                                <rect key="frame" x="0.0" y="259.5" width="375" height="407.5"/>
+                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUN-44-82S">
-                                <rect key="frame" x="0.0" y="259.5" width="375" height="407.5"/>
+                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="hi" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FDc-Hn-IBf">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="407.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -44,9 +44,9 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HbA-uL-CiJ">
-                                <rect key="frame" x="8" y="28" width="359" height="215.5"/>
+                                <rect key="frame" x="8" y="28" width="359" height="156"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="HbA-uL-CiJ" secondAttribute="height" multiplier="800:480" id="w4k-eC-sRZ"/>
+                                    <constraint firstAttribute="width" secondItem="HbA-uL-CiJ" secondAttribute="height" multiplier="800:348" id="w4k-eC-sRZ"/>
                                 </constraints>
                             </imageView>
                         </subviews>

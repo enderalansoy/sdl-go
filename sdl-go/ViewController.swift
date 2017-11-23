@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 protocol ViewDelegate {
     func log(_ text: String)
@@ -31,13 +32,53 @@ class ViewController: UIViewController, ViewDelegate {
 	}
     
     func log(_ text: String) {
-        let prevText = label.text
-        label.text = "\(prevText ?? "")\n\(text)"
+//        let prevText = label.text
+//        label.text = "\(prevText ?? "")\n\(text)"
+        print(text)
     }
     
     func captureScreen() -> UIImage? {
-        imageView.image = UIImage(view: scrollContentView)
-        imageView.contentMode = .scaleToFill
-        return UIImage(view:imageView)
+//        imageView.image = UIImage(view: scrollContentView)
+//        imageView.contentMode = .scaleAspectFit
+//
+//        //let image = UIImage(view:imageView)
+////        guard let image = UIImage(named:"image_ford") else {
+////            print("No image")
+////            return .none
+////        }
+//        //imageView.image = image
+//
+//        return imageView.image
+        
+        let location = CLLocation(latitude: 40.975427, longitude: 29.231953)
+        takeSnapshot(location, self.imageView) { image, error in
+            if let image = image {
+                self.imageView.image = image
+            } else {
+                print("no image")
+            }
+            
+        }
+        return imageView.image
+    }
+    
+    func takeSnapshot(_ location: CLLocation, _ imageView: UIImageView, _ withCallback: @escaping (UIImage?, Error?) -> ()) {
+        let options = MKMapSnapshotOptions()
+        let regionRadius: CLLocationDistance = 1000
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
+        options.region = coordinateRegion
+        options.size = imageView.frame.size
+        options.scale = UIScreen.main.scale
+        
+        
+        let snapshotter = MKMapSnapshotter(options: options)
+        snapshotter.start() { snapshot, error in
+            guard snapshot != nil else {
+                withCallback(nil, error)
+                return
+            }
+            
+            withCallback(snapshot!.image, nil)
+        }
     }
 }

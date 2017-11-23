@@ -68,12 +68,11 @@ private extension ProxyManager {
     
     class func setupConfiguration(with lifecycleConfig: SDLLifecycleConfiguration) -> SDLConfiguration  {
         lifecycleConfig.shortAppName = "SyncProxyTester"
-        let appImage = UIImage(named: "test_image")
-        lifecycleConfig.appIcon = SDLArtwork(image: appImage!, name: "AppIcon", persistent: true, as: .JPG)
+        let appImage = UIImage(named: "test_image2")
+        lifecycleConfig.appIcon = SDLArtwork(image: appImage!, name: "AppIcon2", persistent: true, as: .JPG)
         //lifecycleConfig.appIcon = SDLArtwork(image: UIImage(named:"test_image")!, name: AppInfo.logoName, persistent: true, as: .JPG)
         lifecycleConfig.appType = .navigation
-        let streamingMediaConfig = SDLStreamingMediaConfiguration()
-        streamingMediaConfig.securityManagers = [FMCSecurityManager.self]
+        let streamingMediaConfig = SDLStreamingMediaConfiguration(securityManagers: [FMCSecurityManager.self])
         return SDLConfiguration(lifecycle: lifecycleConfig, lockScreen: .enabled(), logging: .debug(), streamingMedia: streamingMediaConfig)
     }
 }
