@@ -16,9 +16,9 @@ protocol ViewDelegate {
 
 class ViewController: UIViewController, ViewDelegate {
 	
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var label: UITextView!
     
     override func viewDidLoad() {
 		super.viewDidLoad()
@@ -38,28 +38,31 @@ class ViewController: UIViewController, ViewDelegate {
     }
     
     func captureScreen() -> UIImage? {
-//        imageView.image = UIImage(view: scrollContentView)
-//        imageView.contentMode = .scaleAspectFit
+
+        imageView.contentMode = .center
+
+        let image = UIImage(view: mapView)
+        imageView.image = image
+        imageView.clipsToBounds = true
+        //let image = UIImage(view:imageView)
+//        guard let image = UIImage(named:"image_ford") else {
+//            print("No image")
+//            return .none
+//        }
+        //imageView.image = image
+
+//        return image
+
+//        let location = CLLocation(latitude: 40.975427, longitude: 29.231953)
+//        takeSnapshot(location, self.imageView) { image, error in
+//            if let image = image {
+//                self.imageView.image = image
+//            } else {
+//                print("no image")
+//            }
 //
-//        //let image = UIImage(view:imageView)
-////        guard let image = UIImage(named:"image_ford") else {
-////            print("No image")
-////            return .none
-////        }
-//        //imageView.image = image
-//
-//        return imageView.image
-        
-        let location = CLLocation(latitude: 40.975427, longitude: 29.231953)
-        takeSnapshot(location, self.imageView) { image, error in
-            if let image = image {
-                self.imageView.image = image
-            } else {
-                print("no image")
-            }
-            
-        }
-        return imageView.image
+//        }
+        return UIImage(view: imageView)
     }
     
     func takeSnapshot(_ location: CLLocation, _ imageView: UIImageView, _ withCallback: @escaping (UIImage?, Error?) -> ()) {

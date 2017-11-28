@@ -12,11 +12,10 @@ import CoreImage
 import MapKit
 
 struct AppInfo {
-    static let appName = "SyncProxyTester"//"Easy Route App"
-    static let appId = "883259982"//"312558813"
+    static let appName = "Easy Route App"//"SyncProxyTester"//"Easy Route App"
+    static let appId = "312558813"//"883259982"//"312558813"
     static let ipAddress = ""
     static let port : UInt16 = 12345
-    
 }
 
 enum SDLHMIFirstState {
@@ -31,6 +30,7 @@ class ProxyManager: NSObject {
     var sdlManager: SDLManager?
     var firstTimeState: SDLHMIFirstState = .none
     let ciContext = CIContext()
+    var timer = Timer(timeInterval: 1.0/30.0, target: self, selector: #selector(sendCIImage), userInfo: nil, repeats: true)
     
     // Singleton
     static let sharedManager = ProxyManager()
@@ -67,7 +67,7 @@ private extension ProxyManager {
     }
     
     class func setupConfiguration(with lifecycleConfig: SDLLifecycleConfiguration) -> SDLConfiguration  {
-        lifecycleConfig.shortAppName = "SyncProxyTester"
+        lifecycleConfig.shortAppName = "EasyRoute"//"SyncProxyTester"
         let appImage = UIImage(named: "test_image2")
         lifecycleConfig.appIcon = SDLArtwork(image: appImage!, name: "AppIcon2", persistent: true, as: .JPG)
         //lifecycleConfig.appIcon = SDLArtwork(image: UIImage(named:"test_image")!, name: AppInfo.logoName, persistent: true, as: .JPG)
@@ -86,32 +86,50 @@ extension ProxyManager: SDLManagerDelegate, SDLTouchManagerDelegate {
     
     func hmiLevel(_ oldLevel: SDLHMILevel, didChangeToLevel newLevel: SDLHMILevel) {
         
+//        if newLevel != .none && oldLevel == .none {
+//            //None -> Non-none
+//            startVideoStreaming()
+//
+//        } else if newLevel == .none && oldLevel != .none {
+//            //Non-none -> None
+//            stopVideoStreaming()
+//        }
+
         if newLevel != .none && firstTimeState == .none {
             // First time in a full, limited, or background state
             self.firstTimeState = .nonNone
         }
-        
+
         if (newLevel == .full && firstTimeState != .full) {
             // First time in a full state
             self.firstTimeState = .full
-            // Start streaming video
-            
-            let timer = Timer(timeInterval: 1.0/30.0, target: self, selector: #selector(sendCIImage), userInfo: nil, repeats: true)
-            RunLoop.main.add(timer, forMode: .commonModes)
+            startVideoStreaming()
         }
-        
+
         if newLevel == .full {
             // Full state
+
         } else if newLevel == .limited {
-        
             // Limited state
+
         } else if newLevel == .background {
             // Background state
+
         } else if newLevel == .none {
             // None state
         }
     }
+    
+    func startVideoStreaming() {
+        RunLoop.main.add(timer, forMode: .commonModes)
+        
+    }
+    
+    func stopVideoStreaming() {
+        timer.invalidate()
+    }
 }
+
 extension ProxyManager {
     
     func sendCIImage() -> Bool {

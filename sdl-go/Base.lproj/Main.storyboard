@@ -28,19 +28,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUN-44-82S">
                                 <rect key="frame" x="0.0" y="200" width="375" height="467"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="hi" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FDc-Hn-IBf">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="O7O-lf-md6">
+                                        <rect key="frame" x="0.0" y="16" width="375" height="451"/>
+                                    </mapView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="FDc-Hn-IBf" secondAttribute="trailing" id="60K-kQ-4io"/>
-                                    <constraint firstItem="FDc-Hn-IBf" firstAttribute="top" secondItem="BUN-44-82S" secondAttribute="top" id="KJc-cw-QeJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="FDc-Hn-IBf" secondAttribute="bottom" id="a2s-ci-rgT"/>
-                                    <constraint firstItem="FDc-Hn-IBf" firstAttribute="leading" secondItem="BUN-44-82S" secondAttribute="leading" id="sXO-wI-JiN"/>
+                                    <constraint firstItem="O7O-lf-md6" firstAttribute="leading" secondItem="BUN-44-82S" secondAttribute="leading" id="T46-O5-303"/>
+                                    <constraint firstAttribute="bottom" secondItem="O7O-lf-md6" secondAttribute="bottom" id="oEo-L3-jbC"/>
+                                    <constraint firstItem="O7O-lf-md6" firstAttribute="top" secondItem="BUN-44-82S" secondAttribute="top" constant="16" id="wOT-bg-C1m"/>
+                                    <constraint firstAttribute="trailing" secondItem="O7O-lf-md6" secondAttribute="trailing" id="ysw-Mf-A46"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HbA-uL-CiJ">
@@ -67,7 +64,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="HbA-uL-CiJ" id="sLy-Ig-wEm"/>
-                        <outlet property="label" destination="FDc-Hn-IBf" id="XJI-wu-wZn"/>
+                        <outlet property="mapView" destination="O7O-lf-md6" id="sGp-ae-OGM"/>
                         <outlet property="scrollContentView" destination="BUN-44-82S" id="kq1-DE-jYb"/>
                     </connections>
                 </viewController>
