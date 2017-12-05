@@ -22,3 +22,7 @@ extension UIView {
     }
 }
 
+struct Translation {
+    var x: CGFloat
+    var y: CGFloat
+}

@@ -14,7 +14,7 @@ import MapKit
 protocol ViewDelegate {
     func log(_ text: String)
     func captureScreen() -> UIImage?
-    func handlePan(from: CGPoint, to: CGPoint)
+    func handlePan(translation: Translation)
 }
 
 struct AppInfo {
@@ -37,12 +37,14 @@ class ProxyManager: NSObject {
     var firstTimeState: SDLHMIFirstState = .none
     let ciContext = CIContext()
     var count = 0
+    var dif: Translation!
     
     // Singleton
     static let sharedManager = ProxyManager()
     
     private override init() {
         super.init()
+        resetDif()
     }
     
     func connect() {
@@ -224,7 +226,21 @@ extension ProxyManager: SDLTouchManagerDelegate {
     }
     
     public func handlePan(from: CGPoint, to: CGPoint) {
-        self.delegate?.handlePan(from: from, to: to)
+        let translation = Translation(x: to.x-from.x, y: to.y-from.y)
+        sumDif(translation)
+        if (abs(dif.x) > 50) || (abs(dif.y) > 50) {
+            self.delegate?.handlePan(translation: dif)
+            resetDif()
+        }
+    }
+    
+    func resetDif() {
+        self.dif = Translation(x: 0, y: 0)
+    }
+    
+    func sumDif(_ with: Translation) {
+        self.dif.x += with.x
+        self.dif.y += with.y
     }
 
     
