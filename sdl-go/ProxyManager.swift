@@ -11,9 +11,15 @@ import SmartDeviceLink
 import CoreImage
 import MapKit
 
+protocol ViewDelegate {
+    func log(_ text: String)
+    func captureScreen() -> UIImage?
+    func handlePan(from: CGPoint, to: CGPoint)
+}
+
 struct AppInfo {
-    static let appName = "Easy Route App"//"SyncProxyTester"//"Easy Route App"
-    static let appId = "312558813"//"883259982"//"312558813"
+    static let appName = "SyncProxyTester"//"SyncProxyTester"//"Easy Route App"
+    static let appId = "883259982"//"883259982"//"312558813"
     static let ipAddress = ""
     static let port : UInt16 = 12345
 }
@@ -30,7 +36,7 @@ class ProxyManager: NSObject {
     var sdlManager: SDLManager?
     var firstTimeState: SDLHMIFirstState = .none
     let ciContext = CIContext()
-    var timer = Timer(timeInterval: 1.0/30.0, target: self, selector: #selector(sendCIImage), userInfo: nil, repeats: true)
+    var count = 0
     
     // Singleton
     static let sharedManager = ProxyManager()
@@ -40,8 +46,15 @@ class ProxyManager: NSObject {
     }
     
     func connect() {
+        //appLinkView = AppLink(frame: CGRect(x: 0, y: 0, width: 800, height: 380))
+
         self.sdlManager = SDLManager(configuration: ProxyManager.connectIAP(), delegate: self)
+        
         self.sdlManager?.streamManager?.touchManager.touchEventDelegate = self
+        
+        // To Register
+        //NotificationCenter.default.addObserver(self, selector: #selector(touchEventAvailable(_:)), name: .SDLDidReceiveTouchEvent, object: nil)
+        
         self.sdlManager!.start { (success, error) in
             if success {
                 self.log("Successfully connected to a SDL enabled accessory")
@@ -67,7 +80,7 @@ private extension ProxyManager {
     }
     
     class func setupConfiguration(with lifecycleConfig: SDLLifecycleConfiguration) -> SDLConfiguration  {
-        lifecycleConfig.shortAppName = "EasyRoute"//"SyncProxyTester"
+        lifecycleConfig.shortAppName = "SyncProxyTester"//"SyncProxyTester"
         let appImage = UIImage(named: "test_image2")
         lifecycleConfig.appIcon = SDLArtwork(image: appImage!, name: "AppIcon2", persistent: true, as: .JPG)
         //lifecycleConfig.appIcon = SDLArtwork(image: UIImage(named:"test_image")!, name: AppInfo.logoName, persistent: true, as: .JPG)
@@ -77,7 +90,7 @@ private extension ProxyManager {
     }
 }
 
-extension ProxyManager: SDLManagerDelegate, SDLTouchManagerDelegate {
+extension ProxyManager: SDLManagerDelegate {
     
     func managerDidDisconnect() {
         self.firstTimeState = .none
@@ -85,15 +98,6 @@ extension ProxyManager: SDLManagerDelegate, SDLTouchManagerDelegate {
     }
     
     func hmiLevel(_ oldLevel: SDLHMILevel, didChangeToLevel newLevel: SDLHMILevel) {
-        
-//        if newLevel != .none && oldLevel == .none {
-//            //None -> Non-none
-//            startVideoStreaming()
-//
-//        } else if newLevel == .none && oldLevel != .none {
-//            //Non-none -> None
-//            stopVideoStreaming()
-//        }
 
         if newLevel != .none && firstTimeState == .none {
             // First time in a full, limited, or background state
@@ -121,16 +125,19 @@ extension ProxyManager: SDLManagerDelegate, SDLTouchManagerDelegate {
     }
     
     func startVideoStreaming() {
+        let timer = Timer(timeInterval: 1.0/12.0, target: self, selector: #selector(asyncSend), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: .commonModes)
         
-    }
-    
-    func stopVideoStreaming() {
-        timer.invalidate()
     }
 }
 
 extension ProxyManager {
+    
+    func asyncSend() {
+        DispatchQueue.main.async {
+            let _ = self.sendCIImage()
+        }
+    }
     
     func sendCIImage() -> Bool {
         
@@ -177,7 +184,7 @@ extension ProxyManager {
         }
         
         let success = streamManager.sendVideoData(buffer)
-        self.log("video was sent: \(success ? "successfully" : "unsuccessfully")")
+        //self.log("video was sent: \(success ? "successfully" : "unsuccessfully")")
         return success
     }
 }
@@ -193,3 +200,46 @@ extension ProxyManager {
     }
 }
 
+extension ProxyManager: SDLTouchManagerDelegate {
+    
+    public func touchManager(_ manager: SDLTouchManager, didReceiveSingleTapFor view: UIView?, at point: CGPoint) {
+        self.delegate?.log("Single Tap at \(point).")
+    }
+    
+    public func touchManager(_ manager: SDLTouchManager, didReceiveDoubleTapFor view: UIView?, at point: CGPoint) {
+        self.delegate?.log("Double Tap at \(point).")
+
+    }
+
+     public func touchManager(_ manager: SDLTouchManager, didReceivePanningFrom fromPoint: CGPoint, to toPoint: CGPoint) {
+        self.count += 1
+        self.delegate?.log("Panning from \(fromPoint) to \(toPoint). count= \(count)")
+        handlePan(from: fromPoint, to: toPoint)
+
+    }
+    
+     public func touchManager(_ manager: SDLTouchManager, didReceivePinchAtCenter point: CGPoint, withScale scale: CGFloat) {
+        self.delegate?.log("Pinch at \(point) with scale \(scale).")
+
+    }
+    
+    public func handlePan(from: CGPoint, to: CGPoint) {
+        self.delegate?.handlePan(from: from, to: to)
+    }
+
+    
+ /** Get touch events without using delegate methods **/
+    
+//    // On Receive
+//    @objc fileprivate func touchEventAvailable(_ notification: SDLRPCNotificationNotification) {
+//        guard let touchEvent = notification.notification as? SDLOnTouchEvent else {
+//            print("Error retrieving onTouchEvent object")
+//            return
+//        }
+//
+//        // Grab something like type
+//        let type = touchEvent.type
+//        //self.delegate?.log(type._rawValue as String)
+//    }
+
+}

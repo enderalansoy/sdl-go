@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mic-6O-K6m">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="4096" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,56 +21,62 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cuc-L9-Y2E">
-                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
-                            </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUN-44-82S">
-                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
-                                <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="O7O-lf-md6">
-                                        <rect key="frame" x="0.0" y="16" width="375" height="451"/>
-                                    </mapView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="O7O-lf-md6" firstAttribute="leading" secondItem="BUN-44-82S" secondAttribute="leading" id="T46-O5-303"/>
-                                    <constraint firstAttribute="bottom" secondItem="O7O-lf-md6" secondAttribute="bottom" id="oEo-L3-jbC"/>
-                                    <constraint firstItem="O7O-lf-md6" firstAttribute="top" secondItem="BUN-44-82S" secondAttribute="top" constant="16" id="wOT-bg-C1m"/>
-                                    <constraint firstAttribute="trailing" secondItem="O7O-lf-md6" secondAttribute="trailing" id="ysw-Mf-A46"/>
-                                </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HbA-uL-CiJ">
-                                <rect key="frame" x="8" y="28" width="359" height="156"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="HbA-uL-CiJ" secondAttribute="height" multiplier="800:348" id="w4k-eC-sRZ"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="HbA-uL-CiJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0nZ-UF-ZYV"/>
-                            <constraint firstAttribute="trailing" secondItem="HbA-uL-CiJ" secondAttribute="trailing" constant="8" id="2L0-Ka-xof"/>
-                            <constraint firstAttribute="trailing" secondItem="BUN-44-82S" secondAttribute="trailing" id="3W7-Fg-RKw"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cuc-L9-Y2E" secondAttribute="bottom" id="9OO-EC-MH0"/>
-                            <constraint firstItem="HbA-uL-CiJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="9pE-1M-W2v"/>
-                            <constraint firstItem="Cuc-L9-Y2E" firstAttribute="top" secondItem="HbA-uL-CiJ" secondAttribute="bottom" constant="16" id="JTJ-S4-XXK"/>
-                            <constraint firstItem="BUN-44-82S" firstAttribute="top" secondItem="Cuc-L9-Y2E" secondAttribute="top" id="M3Z-6l-ObU"/>
-                            <constraint firstAttribute="trailing" secondItem="Cuc-L9-Y2E" secondAttribute="trailing" id="MWm-2x-0Rb"/>
-                            <constraint firstItem="BUN-44-82S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XVs-Wz-y8h"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BUN-44-82S" secondAttribute="bottom" id="hiV-rg-3Ao"/>
-                            <constraint firstItem="Cuc-L9-Y2E" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yT7-rb-l9l"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="imageView" destination="HbA-uL-CiJ" id="sLy-Ig-wEm"/>
-                        <outlet property="mapView" destination="O7O-lf-md6" id="sGp-ae-OGM"/>
-                        <outlet property="scrollContentView" destination="BUN-44-82S" id="kq1-DE-jYb"/>
-                    </connections>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="112.89355322338831"/>
+            <point key="canvasLocation" x="106.40000000000001" y="111.99400299850076"/>
+        </scene>
+        <!--App Link View Controller-->
+        <scene sceneID="H17-N0-LCT">
+            <objects>
+                <viewController id="Mic-6O-K6m" customClass="AppLinkViewController" customModule="sdl_go" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7LI-jC-1HW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bvu-GG-rTl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rMK-78-qkJ">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="380"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3L-zq-oVa" customClass="AppLink" customModule="sdl_go" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="380"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="380" id="JGr-Qw-1ih"/>
+                                    <constraint firstAttribute="width" constant="800" id="ss5-c4-Mcl"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edr-v9-zds">
+                                <rect key="frame" x="28" y="8" width="200" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="heH-9V-cjV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v3L-zq-oVa" firstAttribute="top" secondItem="7LI-jC-1HW" secondAttribute="bottom" id="9dh-hi-tjx"/>
+                            <constraint firstItem="v3L-zq-oVa" firstAttribute="leading" secondItem="rMK-78-qkJ" secondAttribute="leading" id="CxO-XV-ED2"/>
+                            <constraint firstItem="Edr-v9-zds" firstAttribute="leading" secondItem="rMK-78-qkJ" secondAttribute="leadingMargin" constant="8" id="TID-k8-FwZ"/>
+                            <constraint firstItem="Edr-v9-zds" firstAttribute="top" secondItem="7LI-jC-1HW" secondAttribute="bottom" constant="8" id="sTP-aC-SWL"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="800" height="380"/>
+                    <size key="freeformSize" width="800" height="380"/>
+                    <connections>
+                        <outlet property="appLinkView" destination="v3L-zq-oVa" id="4rZ-vD-CGw"/>
+                        <outlet property="pointLabel" destination="Edr-v9-zds" id="Kwv-AL-4Ce"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJo-kn-coE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1213" y="-17"/>
         </scene>
     </scenes>
 </document>
