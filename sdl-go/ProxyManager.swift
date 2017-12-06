@@ -15,6 +15,7 @@ protocol ViewDelegate {
     func log(_ text: String)
     func captureScreen() -> UIImage?
     func handlePan(translation: Translation)
+    func zoomMap(on point: CGPoint, with scale: CGFloat)
 }
 
 struct AppInfo {
@@ -36,8 +37,10 @@ class ProxyManager: NSObject {
     var sdlManager: SDLManager?
     var firstTimeState: SDLHMIFirstState = .none
     let ciContext = CIContext()
+    
     var count = 0
     var dif: Translation!
+    var zoomScale: CGFloat = 0
     
     // Singleton
     static let sharedManager = ProxyManager()
@@ -96,7 +99,7 @@ extension ProxyManager: SDLManagerDelegate {
     
     func managerDidDisconnect() {
         self.firstTimeState = .none
-        self.sdlManager = nil
+        //self.sdlManager = nil
     }
     
     func hmiLevel(_ oldLevel: SDLHMILevel, didChangeToLevel newLevel: SDLHMILevel) {
@@ -127,7 +130,7 @@ extension ProxyManager: SDLManagerDelegate {
     }
     
     func startVideoStreaming() {
-        let timer = Timer(timeInterval: 1.0/12.0, target: self, selector: #selector(asyncSend), userInfo: nil, repeats: true)
+        let timer = Timer(timeInterval: 1.0/30.0, target: self, selector: #selector(asyncSend), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: .commonModes)
         
     }
@@ -144,7 +147,7 @@ extension ProxyManager {
     func sendCIImage() -> Bool {
         
         guard let image = captureScreen() else {
-            self.log("Cant capture screen")
+            //self.log("Cant capture screen")
             return false
         }
         
@@ -202,6 +205,7 @@ extension ProxyManager {
     }
 }
 
+//MARK:: Touch Delegate Operations
 extension ProxyManager: SDLTouchManagerDelegate {
     
     public func touchManager(_ manager: SDLTouchManager, didReceiveSingleTapFor view: UIView?, at point: CGPoint) {
@@ -216,28 +220,45 @@ extension ProxyManager: SDLTouchManagerDelegate {
      public func touchManager(_ manager: SDLTouchManager, didReceivePanningFrom fromPoint: CGPoint, to toPoint: CGPoint) {
         self.count += 1
         self.delegate?.log("Panning from \(fromPoint) to \(toPoint). count= \(count)")
-        handlePan(from: fromPoint, to: toPoint)
+        handlePan(fromPoint, toPoint)
 
     }
     
      public func touchManager(_ manager: SDLTouchManager, didReceivePinchAtCenter point: CGPoint, withScale scale: CGFloat) {
         self.delegate?.log("Pinch at \(point) with scale \(scale).")
+        handlePinch(point, scale)
 
     }
     
-    public func handlePan(from: CGPoint, to: CGPoint) {
-        let translation = Translation(x: to.x-from.x, y: to.y-from.y)
-        sumDif(translation)
-        if (abs(dif.x) > 50) || (abs(dif.y) > 50) {
-            self.delegate?.handlePan(translation: dif)
-            resetDif()
+    //Do Pinch if above limit
+    public func handlePinch(_ point: CGPoint, _ scale: CGFloat) {
+        zoomScale += scale-1
+        if abs(zoomScale) > 0.3 {
+            if zoomScale < 0 {
+                zoomScale = 1-zoomScale
+            }
+            self.delegate?.zoomMap(on: point, with: zoomScale)
+            zoomScale = 0
         }
     }
     
+    
+    //Do Pan if above the limit
+    public func handlePan(_ from: CGPoint, _ to: CGPoint) {
+        let translation = Translation(x: to.x-from.x, y: to.y-from.y)
+        self.sumDif(translation)
+        if (abs(self.dif.x) > 50) || (abs(self.dif.y) > 50) {
+            self.delegate?.handlePan(translation: self.dif)
+            self.resetDif()
+        }
+    }
+    
+    // Reset Pan limit
     func resetDif() {
         self.dif = Translation(x: 0, y: 0)
     }
     
+    // Sum Pan coordinates
     func sumDif(_ with: Translation) {
         self.dif.x += with.x
         self.dif.y += with.y
@@ -246,16 +267,21 @@ extension ProxyManager: SDLTouchManagerDelegate {
     
  /** Get touch events without using delegate methods **/
     
-//    // On Receive
-//    @objc fileprivate func touchEventAvailable(_ notification: SDLRPCNotificationNotification) {
-//        guard let touchEvent = notification.notification as? SDLOnTouchEvent else {
-//            print("Error retrieving onTouchEvent object")
-//            return
-//        }
-//
-//        // Grab something like type
-//        let type = touchEvent.type
-//        //self.delegate?.log(type._rawValue as String)
-//    }
+    // On Receive
+    @objc fileprivate func touchEventAvailable(_ notification: SDLRPCNotificationNotification) {
+        
+        guard let touchEvent = notification.notification as? SDLOnTouchEvent else {
+            print("Error retrieving onTouchEvent object")
+            return
+        }
+
+        // Grab something like type
+        let type = touchEvent.type
+        if type == .end {
+            resetDif()
+            zoomScale = 0
+        }
+        //self.delegate?.log(type._rawValue as String)
+    }
 
 }

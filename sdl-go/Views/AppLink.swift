@@ -15,7 +15,7 @@ class AppLink: XibViewHelper {
     @IBOutlet weak var centerLabel: UILabel!
     
     override func awakeFromNib() {
-        centerLabel.text = String(describing: mapView.center)
+        //centerLabel.text = String(describing: mapView.center)
     }
     
 }
