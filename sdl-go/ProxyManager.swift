@@ -13,7 +13,7 @@ import MapKit
 
 protocol ViewDelegate {
     func log(_ text: String)
-    func captureScreen() -> UIImage?
+    func captureScreen() -> CGImage?
     func handlePan(translation: Translation)
     func zoomMap(on point: CGPoint, with scale: CGFloat)
 }
@@ -140,45 +140,13 @@ extension ProxyManager {
     
     func asyncSend() {
         DispatchQueue.main.async {
-            let _ = self.sendCIImage()
+            let _ = self.sendBuffer()
         }
     }
     
-    func sendCIImage() -> Bool {
-        
-        guard let image = captureScreen() else {
-            //self.log("Cant capture screen")
-            return false
-        }
-        
-        let ciImage = CIImage(image: image)
-        let pixelbuffer = pixelBuffer(imageSize: image.size)
-        
-        guard pixelbuffer != nil else {
-            self.log("no pixelbuffer")
-            return false
-        }
-        
-        guard ciImage != nil else {
-            self.log("no ciImage")
-            return false
-        }
-        
-        ciContext.render(ciImage!, to: pixelbuffer!, bounds: (ciImage?.extent)!, colorSpace: CGColorSpaceCreateDeviceRGB())
-        let success = sendVideo(pixelbuffer!)
-        return success
-    }
-    
-    func pixelBuffer(imageSize: CGSize) -> CVPixelBuffer? {
-        
-        var pixelBuffer: CVPixelBuffer? = nil
-        let status: CVReturn = CVPixelBufferCreate(kCFAllocatorDefault, Int(imageSize.width), Int(imageSize.height), kCVPixelFormatType_32BGRA, nil, &pixelBuffer)
-        
-        if status != kCVReturnSuccess {
-            self.log("something went wrong when creating pixel buffer: \(status)")
-        }
-        
-        return pixelBuffer
+    func sendBuffer() -> Bool {
+        guard let buffer = ImageProcessor.pixelBuffer(forImage: captureScreen()!) else { return false }
+        return sendVideo(buffer)
     }
 
     func sendVideo(_ buffer: CVPixelBuffer) -> Bool {
@@ -200,7 +168,7 @@ extension ProxyManager {
         self.delegate?.log(text)
     }
     
-    func captureScreen() -> UIImage? {
+    func captureScreen() -> CGImage? {
         return self.delegate?.captureScreen()
     }
 }
@@ -218,10 +186,9 @@ extension ProxyManager: SDLTouchManagerDelegate {
     }
 
      public func touchManager(_ manager: SDLTouchManager, didReceivePanningFrom fromPoint: CGPoint, to toPoint: CGPoint) {
-        self.count += 1
-        self.delegate?.log("Panning from \(fromPoint) to \(toPoint). count= \(count)")
-        handlePan(fromPoint, toPoint)
-
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.handlePan(fromPoint, toPoint)
+        }
     }
     
      public func touchManager(_ manager: SDLTouchManager, didReceivePinchAtCenter point: CGPoint, withScale scale: CGFloat) {
@@ -246,11 +213,14 @@ extension ProxyManager: SDLTouchManagerDelegate {
     //Do Pan if above the limit
     public func handlePan(_ from: CGPoint, _ to: CGPoint) {
         let translation = Translation(x: to.x-from.x, y: to.y-from.y)
-        self.sumDif(translation)
-        if (abs(self.dif.x) > 50) || (abs(self.dif.y) > 50) {
-            self.delegate?.handlePan(translation: self.dif)
-            self.resetDif()
-        }
+        
+        self.delegate?.handlePan(translation: translation)
+
+//        self.sumDif(translation)
+//        if (abs(self.dif.x) > 50) || (abs(self.dif.y) > 50) {
+//            self.delegate?.handlePan(translation: self.dif)
+//            self.resetDif()
+//        }
     }
     
     // Reset Pan limit

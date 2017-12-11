@@ -34,20 +34,15 @@ class AppLinkViewController: UIViewController, ViewDelegate {
         //print(text)
     }
     
-    func captureScreen() -> UIImage? {
+    func captureScreen() -> CGImage? {
         
-        var image = UIImage(view: appLinkView)
-        return image
-        
-//        let imageFrame = UIImageView(frame: CGRect(x: 0, y: 0, width: 800, height: 400))
-//        imageFrame.contentMode = .scaleAspectFit
-//        imageFrame.image = image
-//        imageFrame.clipsToBounds = true
-//        return UIImage(view: imageFrame)
+        return appLinkView.snapshot()
+
     }
     
     func handlePan(translation: Translation) {
-        /** set center method **/
+        
+        /** set center method */
 //        self.count += 1
 //        self.appLinkView.centerLabel.text = String(describing:self.count)
 //        let coeff: CGFloat = 5
@@ -58,17 +53,16 @@ class AppLinkViewController: UIViewController, ViewDelegate {
 //            self.map.setCenter(self.map.convert(newCenter, toCoordinateFrom: self.map), animated: true)
 //        }
         
-        let span = map.region.span
-        let coeff: CGFloat = 2
+        /**set region method */
+        let span = self.map.region.span
+        let coeff: CGFloat = 8
         let newCenter = CGPoint(x: self.map.center.x - coeff*translation.x, y: self.map.center.y - coeff*translation.y)
         
             let center = self.map.convert(newCenter, toCoordinateFrom: self.map)
             let region = MKCoordinateRegion(center: center, span: span)
-        panQueue.async {
+        DispatchQueue.main.async {
             self.map.setRegion(region, animated: true)
         }
-        
-
     }
     
     func zoomMap(on point: CGPoint, with scale: CGFloat) {
