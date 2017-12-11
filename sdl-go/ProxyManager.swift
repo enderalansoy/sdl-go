@@ -130,19 +130,13 @@ extension ProxyManager: SDLManagerDelegate {
     }
     
     func startVideoStreaming() {
-        let timer = Timer(timeInterval: 1.0/30.0, target: self, selector: #selector(asyncSend), userInfo: nil, repeats: true)
+        let timer = Timer(timeInterval: 1.0/30.0, target: self, selector: #selector(sendBuffer), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: .commonModes)
         
     }
 }
 
 extension ProxyManager {
-    
-    func asyncSend() {
-        DispatchQueue.main.async {
-            let _ = self.sendBuffer()
-        }
-    }
     
     func sendBuffer() -> Bool {
         guard let buffer = ImageProcessor.pixelBuffer(forImage: captureScreen()!) else { return false }
@@ -186,9 +180,8 @@ extension ProxyManager: SDLTouchManagerDelegate {
     }
 
      public func touchManager(_ manager: SDLTouchManager, didReceivePanningFrom fromPoint: CGPoint, to toPoint: CGPoint) {
-        DispatchQueue.global(qos: .userInitiated).async {
             self.handlePan(fromPoint, toPoint)
-        }
+        
     }
     
      public func touchManager(_ manager: SDLTouchManager, didReceivePinchAtCenter point: CGPoint, withScale scale: CGFloat) {
@@ -212,15 +205,20 @@ extension ProxyManager: SDLTouchManagerDelegate {
     
     //Do Pan if above the limit
     public func handlePan(_ from: CGPoint, _ to: CGPoint) {
-        let translation = Translation(x: to.x-from.x, y: to.y-from.y)
         
-        self.delegate?.handlePan(translation: translation)
-
-//        self.sumDif(translation)
-//        if (abs(self.dif.x) > 50) || (abs(self.dif.y) > 50) {
-//            self.delegate?.handlePan(translation: self.dif)
-//            self.resetDif()
+        DispatchQueue.main.async {
+            let translation = Translation(x: to.x-from.x, y: to.y-from.y)
+            self.delegate?.handlePan(translation: translation)
+        }
+        
+//        DispatchQueue.main.async {
+//            self.sumDif(translation)
+//            if (abs(self.dif.x) > 50) || (abs(self.dif.y) > 50) {
+//                self.delegate?.handlePan(translation: self.dif)
+//                self.resetDif()
+//            }
 //        }
+
     }
     
     // Reset Pan limit
