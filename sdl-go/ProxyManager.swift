@@ -37,6 +37,7 @@ class ProxyManager: NSObject {
     var sdlManager: SDLManager?
     var firstTimeState: SDLHMIFirstState = .none
     let ciContext = CIContext()
+    var pixelbuffer: CVPixelBuffer!
     
     var count = 0
     var dif: Translation!
@@ -130,6 +131,7 @@ extension ProxyManager: SDLManagerDelegate {
     }
     
     func startVideoStreaming() {
+        
         let timer = Timer(timeInterval: 1.0/30.0, target: self, selector: #selector(sendBuffer), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: .commonModes)
         
@@ -139,7 +141,7 @@ extension ProxyManager: SDLManagerDelegate {
 extension ProxyManager {
     
     func sendBuffer() -> Bool {
-        guard let buffer = ImageProcessor.pixelBuffer(forImage: captureScreen()!) else { return false }
+        guard let buffer = ImageProcessor.pixelBuffer(forImage: self.captureScreen()!) else { return false }
         return sendVideo(buffer)
     }
 
@@ -180,13 +182,16 @@ extension ProxyManager: SDLTouchManagerDelegate {
     }
 
      public func touchManager(_ manager: SDLTouchManager, didReceivePanningFrom fromPoint: CGPoint, to toPoint: CGPoint) {
+        DispatchQueue.global(qos: .userInteractive).async {
             self.handlePan(fromPoint, toPoint)
-        
+        }
     }
     
      public func touchManager(_ manager: SDLTouchManager, didReceivePinchAtCenter point: CGPoint, withScale scale: CGFloat) {
         self.delegate?.log("Pinch at \(point) with scale \(scale).")
-        handlePinch(point, scale)
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.handlePinch(point, scale)
+        }
 
     }
     
@@ -206,10 +211,9 @@ extension ProxyManager: SDLTouchManagerDelegate {
     //Do Pan if above the limit
     public func handlePan(_ from: CGPoint, _ to: CGPoint) {
         
-        DispatchQueue.main.async {
-            let translation = Translation(x: to.x-from.x, y: to.y-from.y)
-            self.delegate?.handlePan(translation: translation)
-        }
+        let translation = Translation(x: to.x-from.x, y: to.y-from.y)
+        self.delegate?.handlePan(translation: translation)
+        
         
 //        DispatchQueue.main.async {
 //            self.sumDif(translation)
